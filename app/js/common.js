@@ -148,6 +148,13 @@ $(window).on("load", function(){
     $(".preloader").delay(1000).fadeOut("slow");
 });
 
+
+$(window).scroll(function(){
+    var scr = $(this).scrollTop();
+    $(".flex-center").css("transform", "translateY(-" + scr/6 + "px");
+    $(".site-header").css("background-position-y", scr/1.2);
+});
+
 /*
 $(window).on("load", function(){ 
     setInterval(function() {
@@ -160,7 +167,7 @@ $(window).on("load", function(){
         else {
             $(".is-home .site-header").addClass("firstBg");
         }
-  }, 15000);
+  }, 10000);
 
 });
 */
