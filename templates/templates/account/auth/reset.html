@@ -1,0 +1,24 @@
+{% extends 'account/auth.html' %}
+{% load static %}
+{% block title %}Восстановление пароля | WH-CLUB.RU{% endblock %}
+{% block content %}
+<div class="container-fluid auth-panel">
+    <h4 class="text-center pb-2">Восстановление пароля</h4>
+        {% if status %}<center><font color="{{ status.color }}">{{ status.message }}</font></center>{% endif %}
+        <form action="{% url 'account:reset' %}" method="post" novalidate="novalidate">{% csrf_token %}<div class="validation-summary-valid text-danger" data-valmsg-summary="true"><ul><li style="display:none"></li>
+        </ul></div>            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><svg class="svg-inline--fa fa-address-card fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="address-card" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-288 80c38.66 0 70 31.34 70 70s-31.34 70-70 70-70-31.34-70-70 31.34-70 70-70zm112 203c0 11.598-9.402 21-21 21H85c-11.598 0-21-9.402-21-21v-16.207c0-19.272 13.116-36.072 31.813-40.746l31.2-7.8c25.464 18.316 65.195 23.577 97.974 0l31.2 7.8C274.884 294.721 288 311.52 288 330.793V347zm160-39c0 6.627-5.373 12-12 12H332c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v8zm0-64c0 6.627-5.373 12-12 12H332c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v8zm0-64c0 6.627-5.373 12-12 12H332c-6.627 0-12-5.373-12-12v-8c0-6.627 5.373-12 12-12h104c6.627 0 12 5.373 12 12v8z"></path></svg><!-- <i class="fas fa-address-card"></i> --></span>
+            </div>
+            <input aria-describedby="basic-addon1" aria-label="Логин" class="form-control" data-val="true" data-val-required="The Логин field is required." id="Login" name="login" placeholder="Логин (4-16 символов)" type="text" value="">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <script type="text/javascript" src="//www.google.com/recaptcha/api.js" async=""></script>
+            <div class="g-recaptcha" data-sitekey="6LfguE0UAAAAAJfzLTB-T2XUGJA4aRrmFa46kMe5"></div>
+             </div>
+                <button type="submit" class="btn btn-secondary btn-lg btn-block" id="formBtn"><svg class="svg-inline--fa fa-chevron-circle-down fa-w-16 mr-2" aria-hidden="true" data-prefix="fas" data-icon="chevron-circle-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zM273 369.9l135.5-135.5c9.4-9.4 9.4-24.6 0-33.9l-17-17c-9.4-9.4-24.6-9.4-33.9 0L256 285.1 154.4 183.5c-9.4-9.4-24.6-9.4-33.9 0l-17 17c-9.4 9.4-9.4 24.6 0 33.9L239 369.9c9.4 9.4 24.6 9.4 34 0z"></path></svg><!-- <i class="fas fa-chevron-circle-down mr-2"></i> --><span class="mb-1">Восстановить</span></button>
+        </div>
+        </form>
+</div>
+{% endblock %}

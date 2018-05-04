@@ -1,0 +1,24 @@
+{% extends 'mainsite/statistics/index.html' %}
+{% block title %}PK | Статистика{% endblock %}
+{% block statistics %}
+    <div class="stat" style = "height: 980px;overflow: hidden;overflow-y: scroll;width: 100%;">
+        <table style="width:100%">
+        <tbody>
+            <tr>
+                <th><center>#</center></th>
+                <th><center>Ник</center></th>
+                <th><center>PK</center></th>
+                <th><center>Клан</center></th>
+            </tr>
+        {% for character in pk_stat.items %}
+            <tr>
+                <td><center>{{ character.0 }}</center></td>
+                <td><center>{{ character.1.name }}</center></td>
+                <td><center>{{ character.1.pk }}</center></td>
+                <td><center>{{ character.1.clan.0.clan_name }}</center></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+{% endblock %}

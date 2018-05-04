@@ -1,0 +1,27 @@
+{% extends 'account/index.html' %}
+{% block title %}Сервисы{% endblock %}
+{% block content %}
+<div class="col-md-10">
+    <div class="services">
+        <p><i class="fas fa-cart-arrow-down fa-w-18 fa-fw mr-2"></i><span>Услуги</span></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 cards-donate">
+                    <div class="card-deck">
+                        {% for item in services %}
+                        <div class="card">
+                            <img class="card-img-top" src="/{{item.image}}" width="60" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.header}}</h5>
+                                <p class="card-text">{{item.text}}</p>
+                                <p class="card-text"><small class="text-muted text-center"><a href="item?id={{item.id}}" class="btn btn-secondary btn-sm btn-block" role="button" id="linkBtn" aria-disabled="true"><i class="fas fa-shopping-cart mr-2"></i>Купить</a></small></p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

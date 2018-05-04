@@ -1,0 +1,23 @@
+{% extends 'mainsite/index.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+    <div class="statistics-menu">
+    <ul id="stat_menu" style="font-family: 'romul';font-size: 16px;color: white;">
+        <center><a href="/statistics" style="color: black;">Общая</a> |
+        <a href="/statistics?pvp" style="color: black;">Топ PvP</a> |
+        <a href="/statistics?pk" style="color: black;">Топ PK</a>
+        </center>
+        <p><center>
+        <a href="/statistics?clans" style="color: black;">Топ кланов </a> |
+        <a href="/statistics?castles" style="color: black;">Замки</a> |
+    <!--    <li><a href="/statistics?info=forts" style="color: black;">Форты</a></li> | -->
+    <!--   <li><a href="/statistics?info=boss" style="color: black;">Боссы</a></li> | -->
+{#        <a href="/ statistics?hero" style="color: black;">Герои</a> |#}
+{#        <a href="/statistics?bans" style="color: black;">Баны</a> |#}
+        <a href="/statistics?raidboss" style="color: black;">RB</a>
+{#        <a href="/statistics?epic" style="color: black;">Epic</a></center></li>#}
+    </ul>
+    </div>
+    {% block statistics %}
+    {% endblock %}
+{% endblock %}

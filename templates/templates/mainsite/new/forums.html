@@ -1,0 +1,13 @@
+{% extends 'mainsite/new/index.html' %}
+{% load static %}
+{% block forum %}
+    {% for post in forum_bar %}
+    <div class="post">
+        <div class="post-img"><img src="{% static '/mainsite/new/img/post_img.png' %}" alt=""></div>
+        <div class="post-content">
+            <div class="post-title"><a href="https://forum.wh-club.ru/index.php?/topic/{{ post.1.link }}-{{ post.1.text }}/">{{ post.text }}</a></div>
+            <div class="post-author">{{post.author}}, {{ post.time }}</div>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

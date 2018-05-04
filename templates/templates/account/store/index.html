@@ -1,0 +1,87 @@
+{% extends 'account/index.html' %}
+{% load static %}
+{% block title %}Магазин{% endblock %}
+{% block content %}
+    <div class="col-md-9">
+                <div class="shop-panel">
+                    <p><i class="fas fa-cart-arrow-down mr-3 fa-2x"></i><span>Магазин</span></p>
+                    <div class="container-fluid">
+                        <div class="row justify-content-center">
+                            <div class="col-xs-8">
+                                <ul class="nav nav-tabs justify-content-center" id="nav-shop">
+                                    <li class="nav-item"><a class="nav-link active" href="">Все</a></li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Сеты</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="?type=set">Все</a>
+                                            <a class="dropdown-item" href="?type=set&grade=C">C-grade</a>
+                                            <a class="dropdown-item" href="?type=set&grade=B">B-grade</a>
+                                            <a class="dropdown-item" href="?type=set&grade=A">A-grade</a>
+                                            <a class="dropdown-item" href="?type=set&grade=S">S-grade</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Броня</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="?type=armor">Все</a>
+                                            <a class="dropdown-item" href="?type=armor&grade=C">C-grade</a>
+                                            <a class="dropdown-item" href="?type=armor&grade=B">B-grade</a>
+                                            <a class="dropdown-item" href="?type=armor&grade=A">A-grade</a>
+                                            <a class="dropdown-item" href="?type=armor&grade=S">S-grade</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Оружие</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="?type=weapon">Все</a>
+                                            <a class="dropdown-item" href="?type=weapon&grade=C">C-grade</a>
+                                            <a class="dropdown-item" href="?type=weapon&grade=B">B-grade</a>
+                                            <a class="dropdown-item" href="?type=weapon&grade=A">A-grade</a>
+                                            <a class="dropdown-item" href="?type=weapon&grade=S">S-grade</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Бижутерия</a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="?type=jewel">Все</a>
+                                            <a class="dropdown-item" href="?type=jewel&grade=C">C-grade</a>
+                                            <a class="dropdown-item" href="?type=jewel&grade=B">B-grade</a>
+                                            <a class="dropdown-item" href="?type=jewel&grade=A">A-grade</a>
+                                            <a class="dropdown-item" href="?type=jewel&grade=S">S-grade</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item"><a class="nav-link" href="?type=potion">Поушены</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="?type=quest">Квесты</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="?type=other">Прочее</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 mt-4">
+                                <div class="card-deck justify-content-center">
+                                {% for item in store %}
+                                    <div class="card  mb-3">
+                                        <div class="card-header bg-transparent">
+                                            <img class="card-img-top" src="/{{item.image}}" width="60" alt="">
+                                        </div>
+                                        <div class="card-body text-success">
+                                            <h5 class="card-title">{{item.header}}</h5>
+                                            <p class="card-text">{{item.text}}</p>
+                                        </div>
+                                        <div class="card-footer bg-transparent">
+                                            <a href="item?id={{item.id}}" class="btn btn-secondary btn-sm btn-block" role="button" id="cardBtn" aria-disabled="true">
+                                                <i class="fas fa-shopping-cart mr-2"></i>Купить
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'account/js/store.js' %}"></script>
+{% endblock %}

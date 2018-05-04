@@ -1,0 +1,91 @@
+{% extends 'account/index.html' %}
+{% load static %}
+{% block title %}Безопасность{% endblock %}
+{% block content %}
+<div class="col-md-10">
+    <div class="security-panel">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-4 phone-control">
+                    <h5><i class="fas fa-phone-square mr-3 fa-2x"></i><span>Добавить номер телефона</span></h5>
+                    <form action="?security" method="post">
+                        <select class="custom-select mb-3 mt-2" id="country">
+                            <option selected>Выберите регион</option>
+                            <option value="ru">Russia (+7)</option>
+                            <option value="uk">Ukraine (+38)</option>
+                            <option value="br">Brazil (+55)</option>
+                            <option value="be">Belarus (+375)</option>
+                            <option value="mo">Moldova (+373)</option>
+                            <option value="ka">Kazakhstan (+7)</option>
+                            <option value="uz">Uzbekistan (+998)</option>
+                            <option value="az">Azerbaijan (+994)</option>
+                            <option value="po">Poland (+48)</option>
+                            <option value="ar">Armemia (+374)</option>
+                            <option value="ge">Georgia (+999)</option>
+                            <option value="bu">Bulgaria (+359)</option>
+                            <option value="be">Belgium (+55)</option>
+                            <option value="taj">Tajikistan (+992)</option>
+                            <option value="kyr">Kyrgyzstan (+996)</option>
+                            <option value="lit">Lithuania (+370)</option>
+                            <option value="lat">Latvia (+371)</option>
+                            <option value="est">Estonia (+372)</option>
+                            <option value="ro">Romania (+40)</option>
+                            <option value="turk">Turkmenistan (+993)</option>
+                            <option value="cz_rep">Germany (+49)</option>
+                            <option value="usa">USA (+1)</option>
+                        </select>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon8">+7</span>
+                            </div>
+                            <input type="text" class="form-control" id="phone" name="user_phone" placeholder="Телефон" aria-describedby="basic-addon9">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <input type="text" class="form-control" id="smscode" placeholder="Код">
+                            </div>
+                            <div class="form-group col-md-4">
+                                 <button type="submit" class="btn btn-primary">Получить код</button>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block"><i class="fas fa-chevron-circle-down mr-2"></i>Принять</button>
+                    </form>
+                </div>
+                <div class="col-md-6 pas-control">
+                    <div class="spinner"></div>
+                    <h5><i class="fas fa-unlock-alt mr-3 fa-2x"></i><span>Сменить пароль</span></h5>
+                    <p>Внимание! Не создавайте пароли аналогичные тем которые вы делали на других серверах, серьезно относитесь к безопасности вашего аккаунта!</p>
+                    <div class="status-message"><font color="{{ status.color }}">{{ status.message }}</font></div>
+                    <div class="dropdown-divider mb-3"></div>
+                    <form method="post" id="changepassword">
+                        <input type="hidden" name="ajax" value="false">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon5"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control password-reset" name="password" placeholder="Старый пароль" aria-label="Пароль" aria-describedby="basic-addon3">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon6"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control newpassword-reset" name="newpassword" placeholder="Новый пароль" aria-label="Новый пароль" aria-describedby="basic-addon4">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon7"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control newrepass-reset" name="newrepass" placeholder="Подтверждение пароля" aria-label="Подтверждение пароля" aria-describedby="basic-addon4">
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block"><i class="fas fa-chevron-circle-down mr-2"></i>Применить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'account/js/changepassword.js' %}"></script>
+{% endblock %}

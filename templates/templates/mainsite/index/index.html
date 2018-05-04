@@ -1,0 +1,30 @@
+{% extends 'mainsite/new/index.html' %}
+{% block title %}WH-CLUB.RU x50 L2 Server{% endblock %}
+{% block content %}
+    {% for item in content %}
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <div class="news">
+                <div class="body-news">
+                    <div class="news-title h4">{{item.title}}</div>
+                    <div class="news-date">Дата: {{item.public_since}}</div>
+                    <div class="news-content">{{ item.text }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5">
+            <div class="news-image"></div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="paginator">
+        <a href="#prev"><i class="fas fa-angle-double-left"></i></a>
+        <a href="#1">1</a>
+        <a href="#2">2</a>
+        <a href="#3">3</a>
+        <span>&hellip;</span>
+        <a href="#3">8</a>
+        <a href="#next"><i class="fas fa-angle-double-right"></i></a>
+    </div>
+{% endblock %}

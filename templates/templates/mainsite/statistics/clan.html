@@ -1,0 +1,33 @@
+{% extends 'mainsite/statistics/index.html' %}
+{% block title %}Кланы | Статистика{% endblock %}
+{% block statistics %}
+    <div class="stat" style = "height: 980px;overflow: hidden;overflow-y: scroll;width: 100%;">
+        <table style="width:100%"><tbody><tr>
+            <tbody><tr>
+                <th>#</th>
+                <th>Назв.</th>
+            <!--	<th>Альянс</th>  -->
+                <th>Кол. уч.</th>
+                <th>Репут.</th>
+            <!--	<th>Ср. ур.</th> -->
+                <th>Лидер</th>
+                <th>Ур.</th>
+            <th>Замок</th>
+            </tr>
+        {% for clan in clans_stat.items %}
+            <tr>
+                <td><center>{{ clan.0 }}</center></td>
+                <td><center>{{ clan.1.name }}</center></td>
+                <!--	<td></td> -->
+                <td><center>{{ clan.1.members_count }}</center></td>
+                <td><center>{{ clan.1.reputation }}</center></td>
+                <!--	<td>50</td> -->
+                <td><center>{{ clan.1.leader.0.char_name }}</center></td>
+                <td><center>{{ clan.1.level }}</center></td>
+                <td><center>{{ clan.1.castle }}</center></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+{% endblock %}

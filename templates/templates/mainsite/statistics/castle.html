@@ -1,0 +1,33 @@
+{% extends 'mainsite/statistics/index.html' %}
+{% block title %}Замки | Статистика{% endblock %}
+{% block statistics %}
+    <div class="stat" style = "height: 980px;overflow: hidden;overflow-y: scroll;width: 100%;">
+        <table class="table table-stiped table-hover" style="    width: 100%;border-collapse: collapse;margin: 7px 0;max-width: 100%;">
+        <tbody>
+        {% for castle in castles.items %}
+        <tr style = "font-size: 85%;line-height: 1;">
+            <td style="height: 0;margin: 0;padding: 0;vertical-align: top;">
+                <img src="../../static/mainsite/img/castles/{{ castle.1.id }}.jpg" style="width: 80%;">
+            </td>
+            <td valign="middle">
+                <dl>
+                    <dt>
+                        <h5>{{ castle.1.name }}</h5>
+                    </dt></dl>
+                    <dt>
+                        <b>Контроль кланом:</b> {{ castle.1.clan.0.0 }}<br>
+                        <b>Дата осады:</b> {{ castle.1.siegedate }}<br>
+                        <b>Ставка налога:</b> {{ castle.1.taxpercent }}%<br>
+                        <b>Атакующие:</b> -<br>
+                        <b>Защитники:</b> -<br>
+                        <b>Умения:</b> -
+                        <br><br><br>
+                    </dt>
+
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

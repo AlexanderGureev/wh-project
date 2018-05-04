@@ -1,0 +1,61 @@
+{% extends 'account/auth.html' %}
+{% load static %}
+{% block title %}Регистрация | WH-CLUB.RU{% endblock %}
+{% block content %}
+<div class="container auth-panel">
+    <div class="spinner"></div>
+                    <form action="/account/register/" id="reg" method="post">
+                    <input type="hidden" name="ajax" value="false">
+                        <h4 class="text-center pb-2">Регистрация</h4>
+                    <div id="results">{% if errors is true %}<font color="{{ status.color }}">{% for element,message in status.message.items%}{{ element }}{{ message }}{% endfor %}{% else %}{{ status.message }}{% endif %}</font></div>
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
+                                <span class="input-group-text" id="basic-addon2"><select name="prefix" id="prefix" form="reg" placeholder="Префикс"{% if status.prefix is False %} style="background-color: #ffdbde8c"{% endif %}>
+                                    {% for prefix in prefixes.values %}
+                                        <option value="{{ prefix }}">{{ prefix }}</option>
+                                    {% endfor %}
+                                </select>
+                                </span>
+                            </div>
+                            <input type="login" name="login" class="form-control login " placeholder="+ Логин (4+ символов)" aria-label="Логин (4-16 символов)" aria-describedby="basic-addon1" {% if status.login is False %} style ="background-color: #ffdbde8c" {% endif %}{% if status.login is not False %} value ="{{ status.login }}"{% endif %}>
+                        </div>
+                        <div class="check-result login-check"><i class="fas fa-check-circle"></i></div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2"><i class="fas fa-envelope"></i></span>
+                            </div>
+                            <input type="email" name="email" class="form-control email" placeholder="Действующий e-mail" aria-label="Действующий e-mail" aria-describedby="basic-addon2"{% if status.email is False %} style ="background-color: #ffdbde8c" {% endif %} {% if status.email is not False %} value ="{{ status.email }}"{% endif %}>
+                        </div>
+                        <div class="check-result email-check"><i class="fas fa-check-circle"></i></div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" name="password" class="form-control password" placeholder="Пароль (8+ символов)" aria-label="Пароль (4-16 символов, A-z, 0-9)" aria-describedby="basic-addon3" {% if status.password is False %} style ="background-color: #ffdbde8c" {% endif %}>
+                        </div>
+                        <div class="check-result password-check"><i class="fas fa-check-circle"></i></div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon4"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" name="repass" class="form-control repass" placeholder="Повторите пароль" aria-label="Повторите пароль" aria-describedby="basic-addon4"{% if status.repass is False %} style ="background-color: #ffdbde8c" {% endif %}>
+                        </div>
+                        <div class="check-result repass-check"><i class="fas fa-check-circle"></i></div>
+                        <script type="text/javascript" src="//www.google.com/recaptcha/api.js" async="">
+                        </script>
+                        <div class="g-recaptcha" data-sitekey="6LfguE0UAAAAAJfzLTB-T2XUGJA4aRrmFa46kMe5"></div>
+
+                        <div class="form-check pb-3">
+
+                            <center><input type="checkbox" class="form-check-input rules" id="exampleCheck1" name="rules"{% if status.rules is False %} style ="background-color: #ffdbde8c" {% endif %}>
+                            <label class="form-check-label pl-2" for="exampleCheck1">Ознакомлен с <a href="/rules">правилами проекта</a></label></center>
+                        </div>
+                        <button type="submit" class="btn btn-secondary btn-lg btn-block" id="formBtn"><i class="fas fa-chevron-circle-down mr-2"></i><span class="mb-1">Зарегистрироваться</span></button>
+                    </form>
+                </div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'account/js/registration.js' %}"></script>
+{% endblock %}

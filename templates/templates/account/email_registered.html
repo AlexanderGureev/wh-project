@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml'>
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+        <title>Demystifying Email Design</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <style>.main { box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+        .btn { font-weight: 700; color: white; text-decoration: none; padding: 15px; border-radius: 3px; background: rgb(64, 199, 129); box-shadow: 0 -3px rgb(53, 167, 110) inset; }</style>
+    </head>
+    <body style='margin: 0; padding: 0;'>
+        <table border='0' cellpadding='0' cellspacing='0' width='100%' style="background: gray">
+            <tr>
+                <td>
+                    <table align='center' border='0' cellpadding='0' cellspacing='0' width='600' style='border-collapse: collapse; '>
+                        <tr>
+                            <td>
+                                <table class='main' align='center' border='0' cellpadding='0' cellspacing='0' width='600'>
+                                    <tr>
+                                        <td align='center'>
+                                            <img src='https://wh-club.ru/img/email.jpg' alt='Creating Email Magic' width='600' height='225' style='display: block;' />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor='#ffffff' style='padding: 40px 30px 40px 30px;'>
+                                            <table border='0' cellpadding='0' cellspacing='0' width='100%'>
+                                                <tr>
+                                                    <td style='color: #153643; font-family: Arial, sans-serif; font-size: 24px;'>
+                                                        <b>Здравствуйте, {{ username }}</b>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style='padding: 20px 0 30px 0;'>
+                                                        <p>Вы успешно зарегистрировались на сервере Lineage 2 Interlude <a href='http://wh-club.ru' style='color: black'>
+                                                        <b>Wh-Club.Ru</b></a>
+                                                        </p>
+                                                        <p><b>Ваш логин:</b>{{ username }}</p>
+                                                        <p style='padding-bottom: 15px'>Для активации аккаунта Вам необходимо подтвердить почту:</p>
+                                                        <div class='btn-center' style='text-align: center'><a href='https://wh-club.ddns.net/account/activate?token={{ activation_token }}' class='btn'>Активировать аккаунт</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <p style='color: red; font-size: 14px'>Ни в коем случае не передавайте данные 3-им лицам. Храните их в надежном месте!</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td bgcolor='#0f0f0f' style='padding: 30px 30px 30px 30px; font-family: Arial, sans-serif; font-size: 12px; color: white'><p>Задать интересующий Вас вопрос Вы может на <a href='https://forum.wh-club.ru' style='text-decoration: none; color: #ffefb1'>форуме.</a></p><p>С уважением, администрация WH-CLUB.RU</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,154 @@
+{% load static %}
+
+    <!DOCTYPE html>
+    <html lang="ru">
+
+    <head>
+        <meta charset="utf-8">
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
+        <link rel="stylesheet" href="{% static '/mainsite/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static '/mainsite/css/main.css' %}">
+    </head>
+
+    <body>
+        <header class="group">
+            <!--Шапка сайта-->
+            <div class="block-btn">
+                <section class="btn1 col-1-3">
+                    <a href="/start"><img src="{% static 'mainsite/img/btn1.png' %}" alt=""></a>
+                </section>
+                <a href="{% url 'mainsite:index' %}" id="LogoMain"><img src="{% static 'mainsite/img/logo2.png' %}" alt="Logo" /></a>
+                <section class="btn2 col-1-3">
+                    <a href="{% url 'account:index' %}"><img src="{% static 'mainsite/img/btn2.png' %}" alt=""></a>
+                </section>
+            </div>
+        </header>
+        <!--Конец-->
+        <section id="center-row">
+            <div class="grid">
+                <!--Сетка grid в которую вложены 3 колонки (inline-block) + удалим пустое пространство между колонками-->
+                <!--
+            Колонка 1
+          -->
+                <section class="col-1-3 left-block">
+                    <nav class="nav-menu">
+                        <h5>Навигация</h5>
+                        <div class="scroll">
+                        <img src="{%static 'mainsite/img/line.png' %}" alt="" />
+                        <img src="{% static 'mainsite/img/icon.png' %}" alt="" />
+                        </div>
+                        <ul>
+                            <li><a href="{% url 'mainsite:index' %}">Главная</a></li>
+                            <li><a href="/about">О сервере</a></li>
+                            <li><a href="{% url 'account:register' %}">Регистрация</a></li>
+                            <li><a href="{% url 'mainsite:statistics' %}">Статистика</a></li>
+                            <li><a href="/files">Файлы</a></li>
+                            <li><a href="/account/donate">Пожертвование</a></li>
+                            <li><a href="http://forum.wh-club.ru">Форум</a></li>
+                        </ul>
+                    </nav>
+                    <div class="col-1-3 block-video">
+                         <h5>Трансляции</h5>
+                        <a href=""><img src="{% static 'mainsite/img/video.png' %}" alt=""></a>
+                    </div>
+                </section>
+                <!--
+            Колонка 2
+          -->
+                <section class="col-2-3 center-menu">
+                    {% block content %}
+                    {% endblock %}
+                </section>
+                <!--
+            Колонка 3
+          -->
+                <section class="col-1-3 right-block">
+                <h5>Статус сервера</h5>
+                <div class="status-block">
+                <p>Classic X50</p>
+                <div id="progBar"></div>
+                <img src="{% static 'mainsite/img/pb.png' %}" alt="status" id="pb-img" />
+                <p class="status">Cтатус: {{ server_state }} Нагрузка <span id="load">85</span>%</p>
+                </div>
+                <div class="col-1-3 block-forums">
+                <h5>Обсуждения</h5>
+                    {% for topic in forum_bar.items %}
+                    <p>
+                        <img src="{% static 'mainsite/img/forums-icon.png' %}" alt="">
+                        <a href="https://forum.wh-club.ru/index.php?/topic/{{ topic.1.link }}-{{ topic.1.text }}/">{{ topic.1.text }}</a>
+                    </p>
+                    <p class="date">Автор: {{ topic.1.author }}, {{ topic.1.time }}</p>
+                    {% endfor %}
+                </div>
+                <div class="col-1-3 block-social">
+                <h5>Ищите нас</h5>
+                    <a href=""><img width="60" height="60" src="{% static 'mainsite/img/ic1.png' %}" alt=""></a>
+                    <a href=""><img width="60" height="60" src="{% static 'mainsite/img/ic2.png' %}" alt=""></a>
+                    <a href=""><img width="60" height="60" src="{% static 'mainsite/img/ic3.png' %}" alt=""></a>
+                </div>
+                </section>
+            </div>
+            <!--Конец-->
+        </section>
+        <footer>
+            <!--Подвал сайта-->
+            <div class="primary-footer">
+                <div class="col-1-3 table-one">
+                <h6>Топ 5 Лучших Игроков</h6>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Игрок</th>
+                            <th scope="col">PVP/PK</th>
+                        </tr>
+                    {% for user in top5users.items  %}
+                        <tr>
+                            <td scope="row">{{ user.0 }}</td>
+                            <td>{{ user.1.name }}</td>
+                            <td>{{ user.1.pvp }}/{{ user.1.pk }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+                <div class="col-1-3 table-two">
+                <h6>Топ 5 Лучших Кланов</h6>
+                   <table>
+                       <tbody>
+                       <tr>
+                           <th scope="col">#</th>
+                           <th scope="col">Клан</th>
+                           <th scope="col">Репутация</th>
+                           <th scope="col">Замок</th>
+                       </tr>
+                       {% for clan in top5clans.items %}
+                       <tr>
+                           <td scope="row">{{ clan.0 }}</td>
+                           <td>{{ clan.1.name }}</td>
+                           <td>{{ clan.1.reputation }}</td>
+                           <td>{{ clan.1.castle.0.name }}</td>
+                       </tr>
+                       {% endfor %}
+                       </tbody>
+                   </table>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2018 WH-CLUB.RU - LINEAGE II TEST SERVER. ALL RIGHTS BELONG TO NCSOFT.</p>
+            </div>
+        </footer>
+        <!--Конец-->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="{% static 'mainsite/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'mainsite/js/mainProg.js' %}"></script>
+        <script src="{% static 'mainsite/js/main.js' %}"></script>
+    </body>
+
+    </html>

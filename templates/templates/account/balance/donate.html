@@ -1,0 +1,18 @@
+{% extends 'account/index.html' %}
+{% load static %}
+{% block title %}Пожертвование{% endblock %}
+{% block styles %}<link rel="stylesheet" href="{% static 'account/css/donate.css' %}">{% endblock %}
+{% block content %}
+<div class="col-md-10">
+<div class="donate-panel">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 donate-form">
+                <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=Пополнение баланса аккаунта {{ request.user.username }}&label={{ request.user.username }}&targets-hint=&default-sum=30&button-text=14&payment-type-choice=on&mobile-payment-type-choice=on&hint=&successURL=https%3A%2F%2Fwh-club.ddns.net%2Faccount&quickpay=shop&account=410015353007315" width="450" height="213" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+{% endblock %}

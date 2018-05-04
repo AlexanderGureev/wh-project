@@ -1,0 +1,86 @@
+{% extends 'mainsite/statistics/index.html' %}
+{% block title %}Статистика{% endblock %}
+{% block statistics %}
+    <div class="table-active" style = "height: 980px;overflow: hidden;overflow-y: scroll;width: 100%;">
+        <table style="width:100%">
+            <tbody>
+                <tr>
+                    <td colspan="2" width="50%">Аккаунтов</td>
+                    <td colspan="2">{{ basic_info.accounts }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Персонажей</td>
+                    <td colspan="2" colspan="2">{{ basic_info.characters }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Дворян</td>
+                    <td colspan="2">{{ basic_info.nobless }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Героев</td>
+                    <td colspan="2">{{ basic_info.hero }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Гейм.мастеров</td>
+                    <td colspan="2">{{ basic_info.gms }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Кланов</td>
+                    <td colspan="2">{{ basic_info.clans }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">Альянсов</td>
+                    <td colspan="2">{{ basic_info.alianses.0.dcount }}{% if not basic_info.alianses.0.dcount %}0{% endif %}</td>
+                </tr>
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Human</td>
+                    <!--<td width="25%">{human} персонажей</td> -->
+                    <td width="25%"><div style="height:20px; width:{% if basic_info.percent_humans is 0 %}0{% endif %}{{ basic_info.percent_humans|floatformat:0 }}px; background:rgb(108, 82, 31);border-radius: 6px;"></div></td>
+                    <td colspan="2">{% if not basic_info.percent_humans %}0{% endif %}{{ basic_info.percent_humans|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td>Elf</td>
+                    <!--<td>{elf} персонажей</td> -->
+                    <td><div style="height:20px; width:{% if basic_info.percent_elves is 0 %}0{% endif %}{{ basic_info.percent_elves|floatformat:0 }}px; background:rgb(108, 82, 31);border-radius: 6px;"></div></td>
+                    <td colspan="2">{% if not basic_info.percent_elves %}0{% endif %}{{ basic_info.percent_elves|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td>Dark Elf</td>
+                    <!--<td>{dark_elf} персонажей</td> -->
+                    <td><div style="height:20px; width:{% if basic_info.percent_delves is 0 %}0{% endif %}{{ basic_info.percent_delves|floatformat:0 }}px; background:rgb(108, 82, 31);border-radius: 6px;"></div></td>
+                    <td colspan="2">{% if not basic_info.percent_delves %}0{% endif %}{{ basic_info.percent_delves|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td>Orc</td>
+                    <!--<td>{orc} персонажей</td> -->
+                    <td><div style="height:20px; width:{% if basic_info.percent_orcs is 0 %}0{% endif %}{{ basic_info.percent_orcs|floatformat:0 }}px; background:rgb(108, 82, 31);border-radius: 6px;"></div></td>
+                    <td colspan="2">{% if not basic_info.percent_orcs %}0{% endif %}{{ basic_info.percent_orcs|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td>Dwarf</td>
+                    <!--<td>{dwarf} персонажей</td> -->
+                    <td><div style="height:20px; width:{% if basic_info.percent_dwarfs is 0 %}0{% endif %}{{ basic_info.percent_dwarfs|floatformat:0 }}px; background:rgb(108, 82, 31);border-radius: 6px;"></div></td>
+                    <td colspan="2">{% if not basic_info.percent_dwarfs %}0{% endif %}{{ basic_info.percent_dwarfs|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td colspan="4">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Мужчин</td>
+                    <!-- <td>{males} персонажей</td> -->
+                    <td><div style="height:20px; width:{% if basic_info.percent_males is 0 %}0{% endif %}{{ basic_info.percent_males|floatformat:0 }}px; background:rgb(108, 82, 31);border-radius: 6px;"></div></td>
+                    <td colspan="2">{% if not basic_info.percent_males %}0{% endif %}{{ basic_info.percent_males|floatformat:2 }}%</td>
+                </tr>
+                <tr>
+                    <td>Женщин</td>
+                    <!-- <td>{females} персонажей</td> -->
+                    <td><div style="height:20px; width:{% if basic_info.percent_females is 0 %}0{% endif %}{{ basic_info.percent_females|floatformat:0 }}px; background:rgb(136, 125, 21); border-radius: 6px;"></div></td>
+                    <td colspan="2">{% if not basic_info.percent_females %}0{% endif %}{{ basic_info.percent_females|floatformat:2 }}%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

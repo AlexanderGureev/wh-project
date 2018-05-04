@@ -1,0 +1,95 @@
+{% extends 'account/index.html' %}
+{% load static %}
+{% block title %}{{item.0.0.header}} | Магазин | WH-CLUB.ru{% endblock %}
+{% block content %}
+    <div class="col-md-9">
+                <div class="shop-panel">
+                    <p><i class="fas fa-cart-arrow-down mr-3 fa-2x"></i><span>Магазин</span></p>
+                    <div class="container-fluid buyItem">
+                        <div class="row">
+                            <div class="col-xl-4 mb-3">
+                                <div class="col-md-12 text-center imgBlock">
+                                    <img src="/{{ item.0.0.image }}" width="260" alt="{{item.0.0.header}}">
+                                </div>
+                                <div class="col-xs-12 selectChar text-center">
+                                    <h5 class="item-title mt-3">{{item.0.0.header}}</h5>
+                                    <p class="item-text">
+                                        {{item.0.0.text}}
+                                    </p>
+                                </div>
+                            </div>
+        <div class="col-xl-8">
+        <form id="buy" method="post">
+        {% csrf_token %}
+            <div class="row tableBuy mb-4">
+                <div class="col-lg-12">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Выбор</th>
+                                <th class="text-center">Предмет</th>
+                                <th>Кол-во</th>
+                                <th>{% if not item.0.0.type == 'other' and not item.0.0.type == 'quest' and not item.0.0.type == 'potion' %}Заточка{% endif %}</th>
+                                <th>Цена</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for sub_item in item.1 %}
+                            <tr class="text-center">
+                                <td>
+                                    <div class="custom-control custom-checkbox checkbox-container">
+                                                            <input type="checkbox" data-counter="{{ forloop.counter }}" class="custom-control-input js-button" name="item" id="customControlInline{{ forloop.counter }}" value="{{ sub_item.id }}"/>
+                                                            <label class="custom-control-label" for="customControlInline{{ forloop.counter }}"></label>
+                                                        </div>
+                                </td>
+                                <td>
+                                    <img src="/{{ sub_item.image }}" class="rounded-circle mr-2" width="40" alt="">
+                                    {{ sub_item.text }}
+                                    <span class="special_ability">{% if sub_item.special_ability %}[{{ sub_item.special_ability }}]{% endif %} </span>
+                                    <img src="/static/account/img/store/grade/Grade_{{ sub_item.grade }}.gif" width="12"/>
+                                </td>
+                                <td>
+                                    <input class="counter js-counter" data-counter="{{ forloop.counter }}" type="number" size="1" name="count" min="1" max="10" value="1" id="count-{{ forloop.counter }}">
+                                </td>
+                                <td>
+                                    {% if not item.0.0.type == 'other' and not item.0.0.type == 'quest' and not item.0.0.type == 'potion' %}<input class="counter enchant" type="number" size="1"  data-counter="{{ forloop.counter }}" name="enchant" id="enchant-{{ forloop.counter }}" min="0" max="10" value="0">{% endif %}
+                                </td>
+                                <td class="pl-2" id="sub_price-{{ forloop.counter }}" data-price="{{ sub_item.property.price }}" data-counter="{{ forloop.counter }}" name="sub_price-{{ forloop.counter }}"><span class="js-sum">{{ sub_item.property.price }}<i class="fas fa-ruble-sign"></i></span></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row amount">
+                <div class="gds-buy-summ" id="total_sum" data-count="{{ item_count }}">
+                    <p>Сумма к оплате: <span class="order-summ">0</span> <i class="fas fa-ruble-sign"></i></p>
+                </div>
+            </div>
+            <div class="row buyBtn">
+                <div class="col-xs selector">
+                    Персонаж:
+                    <select name="character" id="character">
+                        {% for character in store_characters %}
+                        <option value="{{ character.char_name }}" id="character" >{{ character.char_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-lg-6">
+                    <button form="buy" type="submit" class="btn btn-secondary btn-sm btn-block" role="button" id="cardBtn" aria-disabled="true">
+                        <i class="fas fa-shopping-cart mr-2"></i>Купить</button>
+
+                </div>
+
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'account/js/store.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'account/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'account/css/main.css' %}">
+    {% block styles %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar auth-menu navbar-expand-lg fixed-top ">
+            <a class="navbar-brand" href="{% url 'mainsite:index' %}"><img src="{% static 'account/img/logo.png'%}" height="35" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerAuth" aria-controls="navbarTogglerAuth" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerAuth">
+                <ul class="navbar-nav">
+                    <li class="nav-item pr-3 pt-1">
+                        <a href="../account?buy_donate_coin" class="btn btn-dark active" role="button" aria-pressed="true">Купить Donate Coin</a>
+                    </li>
+                    <li class="nav-item pr-3 pt-1">
+                        <a href="{% url 'account:donate' %}" class="btn btn-secondary active" role="button" aria-pressed="true">Пополнить баланс</a>
+                    </li>
+                    <li class="nav-item pr-3 pt-2">
+                        <span>Ваш баланс: <span class="account-balance">{{ balance.0.balance | floatformat:0 }}</span> <i class="fas fa-ruble-sign"></i></span>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="fas fa-user-circle fa-lg"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">{{ username }}</a>
+                            <a class="dropdown-item" href="{% url 'account:transactions' %}">Транзакции</a>
+                            <a class="dropdown-item" href="#">Настройки</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account:logout' %}"><i class="fas fa-sign-out-alt fa-lg"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid center-menu">
+        <div class="row">
+            <nav class="col-xl-2 sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="{% url 'account:index' %}" class="nav-link"><i class="fas fa-home fa-fw mr-2"></i>Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'account:security' %}" class="nav-link"><i class="fas fa-shield-alt fa-fw mr-2"></i>Безопасность</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'account:services' %}" class="nav-link"><i class="fas fa-briefcase fa-fw mr-2"></i>Услуги</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'account:store' %}" class="nav-link"><i class="fas fa-cart-arrow-down fa-fw mr-2"></i>Магазин</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'account:info' %}" class="nav-link"><i class="fas fa-info-circle fa-fw mr-2"></i>Информация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'mainsite:index' %}" class="nav-link"><i class="fas fa-external-link-square-alt fa-fw mr-2"></i>На сайт</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://forum.wh-club.ru" class="nav-link"><i class="fas fa-comments fa-fw mr-2"></i>На форум</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+    <footer>
+        <div class="row justify-content-center fixed-bottom">
+            <div class="col-md-12 copyright_auth">
+                <p class="text-center">© 2018 WH-CLUB.RU - LINEAGE II TEST SERVER. ALL RIGHTS BELONG TO NCSOFT.</p>
+            </div>
+        </div>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="{% static 'account/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'account/js/main.js' %}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+
+</html>

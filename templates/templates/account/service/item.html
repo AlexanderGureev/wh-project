@@ -1,0 +1,75 @@
+{% extends 'account/index.html' %}
+{% block title %}{{item.0.0.header}}{% endblock %}
+{% block content %}
+<div class="col-md-10">
+<section class="widget item-box">
+    <form id="buy" method="post">
+        <header>
+            <h4>
+                <i class="fa fa-star"></i>
+                Магазин
+                <small>
+                    {{item.0.0.type}}
+                </small>
+            </h4>
+        </header>
+        <div class="container text-align-center" id="store">
+            <div class="row">
+                <div class="col-md-3 item-select">
+                    <div class="gds-buy-img">
+                        <img src="/{{ item.0.0.image }}" alt="{{item.0.0.header}}">
+                        <div class="shadow">{{item.0.0.header}}
+                        <p>Персонаж <select name="character" id="character">
+                            {% for character in store_characters %}
+                                <option value="{{ character.char_name }}" name="character" id="character">{{ character.char_name }}</option>
+                            {% endfor %}
+                        </select>
+                        </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="gds-buy-items item-table">
+                            <div class="item-info">
+                            <table >
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Предмет</td>
+                                        <td>Кол-во</td>
+                                        <td>{% if not item.0.0.type == 'other' and not item.0.0.type == 'quest' and not item.0.0.type == 'potion' %}Заточка{% endif %}</td>
+                                        <td>Цена</td>
+                                    </tr>
+                                {% for sub_item in item.1 %}
+                                    <tr>
+                                        <td><label class="checkbox-container"><input class="js-button" type="checkbox" data-counter="{{ forloop.counter }}" name="item" id="item{{ forloop.counter }}" value="{{ sub_item.id }}" checked><span class="checkmark"></span></label></td>
+                                        <td><img src="/{{ sub_item.image }}" alt=""></td>
+                                        <td>{{ sub_item.text }} <span class="special_ability">{% if sub_item.special_ability %}[{{ sub_item.special_ability }}]{% endif %} </span></td>
+                                        <td><input class="js-counter" data-counter="{{ forloop.counter }}" type="number" name="count" id="count-{{ forloop.counter }}"value="1" min="1" max="10000" step="1"></td>
+                                        <td>{% if not item.0.0.type == 'other' and not item.0.0.type == 'quest' and not item.0.0.type == 'potion' %}<input type="number" class="enchant" data-counter="{{ forloop.counter }}" name="enchant" id="enchant-{{ forloop.counter }}"value="0" min="0" max="65535"> {% endif %} </td>
+                                        <td id="sub_price-{{ forloop.counter }}" data-price="{{ sub_item.property.price }}" data-counter="{{ forloop.counter }}" name="sub_price-{{ forloop.counter }}"><center><span class="js-sum">{{ sub_item.property.price }}</span>₽</center></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            {% csrf_token %}
+
+                                {# <img src="/{{ sub_item.image }}" alt=""> #}
+                                {# <div class="img"><img src="/{{ sub_item.image }}" alt=""></div> #}
+                                {# <div class="enchant"></div> #}
+                                {# <div class="item_name">{{ sub_item.text }} {% if sub_item.special_ability %}[{{ sub_item.special_ability }}]{% endif %}</div> #}
+                                {# <div class="item_grade"><img src="/static/account/img/store/grade/Grade_{{ sub_item.grade }}.gif"/></div> #}
+                                {# <div class="item_sa"></div> #}
+
+                        </div>
+                    <span class="gds-buy-summ" id="total_sum" data-count="{{ item_count }}">Сумма к оплате: <span class="order-summ">0</span> ₽</span>
+                    <button form="buy" type="submit" class="btn btn-secondary btn-sm btn-block" id="formBtn" disabled>Купить</button>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </form>
+</section>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'mainsite/statistics/index.html' %}
+{% block title %}Боссы | Статистика{% endblock %}
+{% block statistics %}
+    <div class="stat" style = "height: 980px;overflow: hidden;overflow-y: scroll;width: 100%;"><table class="full" style="    width: 100%;border-collapse: collapse;margin: 7px 0;max-width: 100%;"><tbody>
+        <tr>
+            <th>#</th>
+            <th>Название</th>
+            <th>Статус</th>
+        </tr>
+        {% for boss in raidboss.items%}
+            <tr>
+                <td>{{ boss.0 }}</td>
+                <td>{{ boss.1.boss_name }}</td>
+                <td>{% if boss.1.respawn_time == 0 %}<font color="green">Жив</font> {% else %}{{ boss.1.respawn_time }}{% endif %}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+    </div>
+{% endblock %}
