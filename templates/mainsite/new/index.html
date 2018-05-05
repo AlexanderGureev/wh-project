@@ -99,11 +99,11 @@
 									<div class="status-server">
 										<p class="name-s h4">WH-CLUB X50 <span>CRAFT-PVP</span></p>
 										<div class="progress-bar">
-											<span>50%</span>
+											<span>{{ server_online }}</span>
 											<div class="pb-fullnes"></div>
 										</div>
 										<div class="pb-fullnes"></div>
-										<p class="info-s">Статус: <span id="st-s">online</span> <br>Платформа: Java</p>
+										<p class="info-s">Статус: <span id="st-s">{{server_state}}</span> <br>Платформа: Java</p>
 									</div>
 								
 									<div class="status-server">
@@ -112,7 +112,7 @@
 											<span>50%</span>
 											<div class="pb-fullnes"></div>
 										</div>
-										<p class="info-s">Статус: <span id="st-s">online</span><br>Платформа: Java</p>
+										<p class="info-s">Статус: <span id="st-s">offline</span><br>Платформа: Java</p>
 									</div>
 								
 									<div class="status-server">
@@ -131,12 +131,12 @@
 								<div class="posts">
 									<div class="block-title"><p class="h4">Обсуждения</p><a href="#">Перейти на форум</a></div>
 									{% block forum %}
-                                        {% for post in forum_bar.items %}
+                                        {% for post in forum_bar %}
                                         <div class="post">
-                                            <div class="post-img"><img src="{% static '/mainsite/new/img/post_img.png' %}" alt=""></div>
+                                            <div class="post-img"><img src="{% if post.poster_photo %}https://forum.wh-club.ru/uploads/{{ post.poster_photo }} {% else %}{% static '/mainsite/new/img/post_img.png' %}{% endif %}" alt=""></div>
                                             <div class="post-content">
-                                                <div class="post-title"><a href="https://forum.wh-club.ru/index.php?/topic/{{ post.1.link }}-{{ post.1.text }}/">{{ post.1.text }}</a></div>
-                                                <div class="post-author">{{post.1.author}}, {{ post.1.time }}</div>
+                                                <div class="post-title"><a href="https://forum.wh-club.ru/index.php?/topic/{{ post.tid }}-{{ post.title }}/">{{ post.title |truncatechars:30}}</a></div>
+                                                <div class="post-author">{{post.last_poster_name}}, {{ post.last_post}}</div>
                                             </div>
                                         </div>
                                         {% endfor %}
@@ -148,6 +148,7 @@
 
 					<div class="col-md-8 col-lg-9 news-block wow slideInRight" data-wow-duration="2s">
 						{% block content %}
+
 						{% endblock %}
 					</div>
 				</div>
@@ -185,18 +186,14 @@
 				<div class="row">
                     {% block s_king %}
 					<div class="col-lg-5">
-						<h2 class="h2">Игровой мир wh-club</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis enim vitae eros ultricies tempus lectus. Fusce ac nulla orci. Proin enim diam interdum nibh sit amet, hendrerit .</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis enim vitae eros ultricies tempus lectus. Fusce ac nulla orci. Proin enim diam interdum nibh sit amet, hendrerit.</p>
+						<h2 class="h2">{{ about_project.title }}</h2>
+						<p>{{ about_project.text }}</p>
 					</div>
 					<div class="col-lg-7">
 						<div class="section-gallery fotorama" data-nav="thumbs" data-thumbwidth="106" data-thumbheight="70" data-thumbborderwidth="4" data-thumbmargin="10" data-width="100%">
-  							<img src="{% static '/mainsite/new/img/photos/small/10.jpg' %}" alt="">
-  							<img src="{% static '/mainsite/new/img/photos/small/11.jpg' %}" alt="">
-  							<img src="{% static '/mainsite/new/img/photos/small/12.jpg' %}" alt="">
-  							<img src="{% static '/mainsite/new/img/photos/small/13.jpg' %}" alt="">
-  							<img src="{% static '/mainsite/new/img/photos/small/14.jpg' %}" alt="">
-  							<img src="{% static '/mainsite/new/img/photos/small/15.jpg' %}" alt="">
+                            {% for image in about_project_images %}
+  							<img src="/static/{{ image.image }}" alt="">
+                            {% endfor %}
   						</div>
 					</div>
                     {% endblock %}
@@ -262,7 +259,7 @@
 						<div class="owl-carousel stat-carousel">
 							<div class="statistics">
 								<div class="statistics-header">Топ 5 PVP лучших игроков</div>
-								<div class="statistics-date">Актуально на 22.04.18 22:21</div>
+								<div class="statistics-date">Актуально на {% now "j F Y H:i" %}</div>
 								<div class="statistics-text">
 									<table>
 										<tr>
@@ -270,18 +267,19 @@
 											<th>Игрок</th>
 											<th>Pvp</th>
 										</tr>
+                                        {% for user in top5pvp %}
 										<tr>
-											<td>1</td>
-											<td>Name</td>
-											<td>156</td>
+											<td>{{ forloop.counter }}</td>
+											<td>{{ user.char_name }}</td>
+											<td>{{ user.pvpkills }}</td>
 										</tr>
-
+                                        {% endfor %}
 									</table>
 								</div>
 							</div>
 							<div class="statistics">
 								<div class="statistics-header">Топ 5 PK лучших игроков</div>
-								<div class="statistics-date">Актуально на 22.04.18 22:23</div>
+								<div class="statistics-date">Актуально на {% now "j F Y H:i" %}</div>
 								<div class="statistics-text">
 									<table>
 										<tr>
@@ -289,38 +287,20 @@
 											<th>Игрок</th>
 											<th>Pk</th>
 										</tr>
+                                        {% for user in top5pk %}
 										<tr>
-											<td>1</td>
-											<td>Name</td>
-											<td>156</td>
+											<td>{{ forloop.counter }}</td>
+											<td>{{ user.char_name }}</td>
+											<td>{{ user.pkkills }}</td>
 										</tr>
-										<tr>
-											<td>2</td>
-											<td>Name</td>
-											<td>76</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Name</td>
-											<td>65</td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>Name</td>
-											<td>45</td>
-										</tr>
-										<tr>
-											<td>5</td>
-											<td>Name</td>
-											<td>34</td>
-										</tr>
+                                        {% endfor %}
 									</table>
 								</div>
 							</div>
 
 							<div class="statistics">
 								<div class="statistics-header">Топ 5 лучших кланов</div>
-								<div class="statistics-date">Актуально на 22.04.18 22:24</div>
+								<div class="statistics-date">Актуально на {% now "j F Y H:i" %}</div>
 								<div class="statistics-text">
 									<table class="clans">
 										<tr>
@@ -329,36 +309,14 @@
 											<th>Репутация</th>
 											<th>Замок</th>
 										</tr>
+                                        {% for clan in top5clans %}
 										<tr>
-											<td>1</td>
-											<td>Name</td>
-											<td>156123</td>
-											<td>-</td>
+											<td>{{forloop.counter}}</td>
+											<td>{{clan.clan_name}}</td>
+											<td>{{clan.reputation_score}}</td>
+											<td>{{clan.hascastle}}</td>
 										</tr>
-										<tr>
-											<td>2</td>
-											<td>Name</td>
-											<td>76</td>
-											<td>Giran</td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>Name</td>
-											<td>6543</td>
-											<td>Aden</td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>Name</td>
-											<td>4523</td>
-											<td>-</td>
-										</tr>
-										<tr>
-											<td>5</td>
-											<td>Name</td>
-											<td>3443</td>
-											<td>-</td>
-										</tr>
+                                        {% endfor %}
 									</table>
 								</div>
 							</div>
@@ -379,29 +337,11 @@
                     {% block streams %}
 					<div class="col-sm-10 offset-sm-1">
 						<div class="owl-carousel streams">
+                            {% for stream in streamlist %}
 							<div class="stream">
 								<img src="{% static '/mainsite/new/img/video.jpg' %}" alt="">
 							</div>
-
-							<div class="stream">
-								<img src="{% static '/mainsite/new/img/video.jpg' %}" alt="">
-							</div>
-
-							<div class="stream">
-								<img src="{% static '/mainsite/new/img/video.jpg' %}" alt="">
-							</div>
-
-							<div class="stream">
-								<img src="{% static '/mainsite/new/img/video.jpg' %}" alt="">
-							</div>
-
-							<div class="stream">
-								<img src="{% static '/mainsite/new/img/video.jpg' %}" alt="">
-							</div>
-							
-							<div class="stream">
-								<img src="{% static '/mainsite/new/img/video.jpg' %}" alt="">
-							</div>
+                            {% endfor %}
 						</div>
 					</div>
                     {% endblock %}
@@ -438,12 +378,12 @@
 							
 							<nav class="footer-menu">
 								<ul>
-									<li><a href="#">О сервере</a></li>
-									<li><a href="#">Регистрация</a></li>
-									<li><a href="#">Статистика</a></li>
-									<li><a href="#">Файлы</a></li>
-									<li><a href="#">Пожертвование</a></li>
-									<li><a href="#">Форум</a></li>
+									<li><a href="/about">О сервере</a></li>
+									<li><a href="/account/registration">Регистрация</a></li>
+									<li><a href="/statistics">Статистика</a></li>
+									<li><a href="/files">Файлы</a></li>
+									<li><a href="/account/donate">Пожертвование</a></li>
+									<li><a href="https://forum.wh-club.ru">Форум</a></li>
 								</ul>
 							</nav>
 

@@ -1,7 +1,7 @@
 {% extends 'mainsite/new/index.html' %}
 {% block title %}WH-CLUB.RU x50 L2 Server{% endblock %}
 {% block content %}
-    {% for item in content %}
+    {% for item in content_page %}
     <div class="row align-items-center">
         <div class="col-lg-7">
             <div class="news">
@@ -17,14 +17,11 @@
         </div>
     </div>
     {% endfor %}
-
     <div class="paginator">
-        <a href="#prev"><i class="fas fa-angle-double-left"></i></a>
-        <a href="#1">1</a>
-        <a href="#2">2</a>
-        <a href="#3">3</a>
-        <span>&hellip;</span>
-        <a href="#3">8</a>
-        <a href="#next"><i class="fas fa-angle-double-right"></i></a>
+        {% if content_page.has_previous %}<a href="?page={{ content_page.previous_page_number }}"><i class="fas fa-angle-double-left"></i></a>{% endif %}
+        {% for i in content_pages.page_range %}
+        <a href="?page={{ i }}">{{i}}</a>
+        {% endfor %}
+        {% if content_page.has_next %}<a href="?page={{ content_page.next_page_number }}"><i class="fas fa-angle-double-right"></i></a>{% endif %}
     </div>
 {% endblock %}
