@@ -27,11 +27,6 @@
 		font-size: 14px;
 	}
 
-	.news-block .paginator {
-		
-		
-	}
-
 	.news-block .news-image {
 		margin-left: 20px;
 		width: 260px;
@@ -40,6 +35,14 @@
 	
 	.carousel-services .carousel-services-composition h3 {
 		font-size: 24px;
+	}
+
+	.info-castle .content p {
+		font-size: 12px;
+	}
+
+	.stat-info table img {
+		width: 200px;
 	}
 }
 
@@ -106,7 +109,23 @@
 		margin-top: 20px;
 		padding-bottom: 110px;
 	}
-	
+
+	.stat-info {
+		margin-top: 0;
+	}
+	.select-stat {
+		text-align: center;
+	}
+	.select-stat a {
+		font-size: 10px;
+		padding: 16px 0;
+		width: 160px;
+		margin-right: 30px;
+	}
+	.info-server {
+		margin-top: 0;
+		padding: 0 40px;
+	}
 }
 
 /* Small Devices, Tablets */
@@ -172,7 +191,9 @@
 	.news-block {
 		margin-top: 0;
 	}
-	
+	.stat-info {
+		margin-left: 50px;
+	}
 }
 
 
@@ -243,6 +264,27 @@
 	
 	.mm-listview>li>a:after {
 		left: 15%;
+	}
+
+	.select-stat a {
+		width: 260px;
+		margin-bottom: 10px;
+		margin-right: 0;
+	}
+
+	.stats-title.h2 {
+		font-size: 22px;
+	}
+	.stat-info table img {
+		width: 140px;
+	}
+
+	.stat-info {
+		margin-left: 0;
+	}
+
+	.info-server {
+		margin-top: 20px;
 	}
 }
 
