@@ -1905,5 +1905,71 @@ section.s-streams .streams .owl-item img {
 	opacity: .4;
 }
 
-/* ABOUT SERVERS */
+/* FILES SERVERS */
 
+.files-server {
+	padding: 30px 50px;
+	color: white;
+}
+
+.files-server p{
+	padding: 0;
+	margin: 0;
+}
+
+.files-server .title p:first-child{
+	text-transform: uppercase;
+	color: #F3A486;
+	font-size: 20px;
+	font-weight: 800;
+}
+.files-server .title p:last-child{
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+}
+
+.files-server .d-files {
+	margin: 30px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.files-server .title:nth-child(2) {
+	width: 65%;
+}
+.files-server .title:nth-child(4) {
+	width: 80%;
+}
+
+.files-server a.button-ex {
+	position: relative;
+	padding: 12px 20px;
+	width: 140px;
+	margin-left: 10px;
+}
+
+.files-server .title:not(:last-child) a.button-ex {
+	padding: 12px 35px 12px 10px;
+}
+
+.files-server .title:not(:last-child) a.button-ex::before {
+	content: "\f019";
+	font-family: FontAwesome;
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	color: rgba(0,0,0, .5);
+	font-size: 20px;
+	transition: color .5s ease;
+}
+
+.files-server .title:not(:last-child) a.button-ex:hover::before {
+	color: rgba(0,0,0, .8);
+}
+
+.files-server .title:last-child a.button-ex {
+	width: 200px;
+	margin-top: 20px;
+	margin-left: 0;
+}

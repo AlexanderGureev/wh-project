@@ -44,6 +44,13 @@
 	.stat-info table img {
 		width: 200px;
 	}
+
+	.files-server .title:nth-child(2) {
+		width: 85%;
+	}
+	.files-server .title:nth-child(4) {
+		width: 100%;
+	}
 }
 
 
@@ -126,6 +133,40 @@
 		margin-top: 0;
 		padding: 0 40px;
 	}
+
+	.files-server .title:nth-child(2) {
+		width: 100%;
+	}
+
+	.files-server {
+		padding: 30px 20px;
+	}
+
+	.files-server .d-files span {
+		font-size: 12px;
+	}
+
+	.files-server a.button-ex {
+		font-size: 11px;
+	}
+	.files-server .title:not(:last-child) a.button-ex {
+		padding: 12px 25px 12px 0;
+	}
+
+	.files-server .title:not(:last-child) a.button-ex::before {
+		top: 6px;
+		font-size: 16px;
+	}
+
+	.files-server a.button-ex {
+		width: 130px;
+		margin-left: 0;
+		margin-right: 10px;
+	}
+
+	.files-server .title:nth-child(6) {
+		padding-bottom: 30px;
+	}
 }
 
 /* Small Devices, Tablets */
@@ -194,6 +235,27 @@
 	.stat-info {
 		margin-left: 50px;
 	}
+	.files-server .d-files {
+		margin-top: 20px;
+	}
+
+	.files-server a.button-ex {
+		margin-bottom: 20px;
+	}
+
+	.files-server .title:nth-child(2) .d-files {
+		margin: 0;
+	}
+
+	.files-server .title:nth-child(2) .d-files:first-child {
+		margin-top: 20px;
+	}
+
+	
+	.files-server .title:nth-child(4) .d-files {
+		margin-bottom: 0;
+	}
+
 }
 
 
@@ -286,6 +348,11 @@
 	.info-server {
 		margin-top: 20px;
 	}
+
+	.files-server .title p:first-child {
+		font-size: 18px;
+	}
+	
 }
 
 
