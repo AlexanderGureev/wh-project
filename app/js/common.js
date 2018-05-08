@@ -156,12 +156,28 @@ $(window).on("load", function () {
     $(".preloader").delay(1000).fadeOut("slow");
 });
 
+$(window).scroll(function(e){
+    parallax();
+  });
+  
+  function parallax(){
+    scrollPos = $(this).scrollTop();
+	$('.site-header').css({
+		'background-position-y' : (-scrollPos/5)+"px"
+    });
 
-$(window).scroll(function () {
-    var scr = $(this).scrollTop();
-    $(".flex-center").css("transform", "translateY(-" + scr / 6 + "px");
-    $(".site-header").css("background-position-y", scr / 1.2);
-});
+    $('.flex-center').css({
+		'transform' : 'translateY(' + (-scrollPos/3)+"px",
+		'opacity': 1-(scrollPos/700)
+    });
+  }
+// $(window).scroll(function () {
+//     window.requestAnimationFrame(function(){
+//         var scr = $(this).scrollTop();
+//         $(".flex-center").css("transform", "translateY(-" + scr / 6 + "px");
+//         $(".site-header").css("background-position-y", scr / 1.2);
+//     });
+// });
 
 /*
 $(window).on("load", function(){ 

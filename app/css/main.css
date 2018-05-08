@@ -31,7 +31,8 @@ section {
 
 .is-home .site-header {
 	min-height: 700px;
-	background-image: url("../img/top-bg.jpg");
+	background: url("../img/top-bg.jpg") no-repeat fixed 50% 0;
+	background-size: cover;
 	height: 100vh;
 }
 
@@ -570,7 +571,7 @@ html.mm-wrapper_opened {
 
 .s-main .block-status .info-s span#st-s {
 	font-family: 'firasans-ex', sans-serif;
-	font-weight: bold;
+	font-weight: normal;
 	color: rgb(31, 189, 105);
 }
 

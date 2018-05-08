@@ -362,6 +362,10 @@
 	.files-server .title p:first-child {
 		font-size: 18px;
 	}
+
+	.is-home .site-header {
+		background: url("../img/top-bg.jpg") no-repeat fixed 65% 0;
+	}
 	
 }
 
