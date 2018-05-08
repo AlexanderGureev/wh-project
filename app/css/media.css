@@ -256,6 +256,16 @@
 		margin-bottom: 0;
 	}
 
+	.statistics table.clans tr td,
+	.statistics table tr td {
+		font-size: 16px;
+		padding: 5px 20px;
+	}
+	.statistics table.clans th,
+	.statistics table th{
+		font-size: 18px;
+	}
+
 }
 
 

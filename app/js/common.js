@@ -141,6 +141,14 @@ $(document).ready(function () {
         }, "slow", "swing");
     });
 
+    tippy(".progress", {
+        html: '#myTooltip',
+        delay: 100,
+        duration: 600,
+        animation: 'scale',
+        theme: 'honeybee',
+      });      
+
 });
 
 
