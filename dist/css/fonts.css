@@ -48,6 +48,13 @@
 }
 
 @font-face {
+	font-family: "firasans-ex";
+	font-weight: bold;
+	font-style: normal;
+	src: url("../fonts/FiraSansRegular/FiraSans-Bold.woff") format("woff");
+}
+
+@font-face {
 	font-family: "FontAwesome";
 	font-weight: normal;
 	font-style: normal;
