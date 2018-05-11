@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
+    <title>Auth Panel</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar auth-menu navbar-expand-lg fixed-top ">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" height="35" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerAuth" aria-controls="navbarTogglerAuth" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerAuth">
+                <ul class="navbar-nav">
+                    <li class="nav-item pr-3 pt-1">
+                        <a href="#" class="button">Купить Donate Coin</a>
+                    </li>
+                    <li class="nav-item pr-3 pt-1">
+                        <a href="#" class="button">Пополнить баланс</a>
+                    </li>
+                    <li class="nav-item pr-3 pt-2">
+                        <span>Ваш баланс: 0 <i class="fas fa-ruble-sign"></i></span>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            <i class="fas fa-user-circle fa-lg"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">{UserName}</a>
+                            <a class="dropdown-item" href="#">Настройки</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-sign-out-alt fa-lg"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid center-menu">
+        <div class="row">
+            <nav class="col-md-3 sidebar">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="" class="nav-link"><i class="fas fa-home fa-fw mr-2"></i>Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link"><i class="fas fa-users fa-fw mr-2"></i>Мои персонажи</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link"><i class="fas fa-shield-alt fa-fw mr-2"></i>Безопасность</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link"><i class="fas fa-briefcase fa-fw mr-2"></i>Услуги</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link"><i class="fas fa-cart-arrow-down fa-fw mr-2"></i>Магазин</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link"><i class="fas fa-info-circle fa-fw mr-2"></i>Информация</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://wh-club.ru" class="nav-link"><i class="fas fa-external-link-square-alt fa-fw mr-2"></i>На сайт</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://forum.wh-club.ru" class="nav-link"><i class="fas fa-comments fa-fw mr-2"></i>На форум</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="col-md-9">
+                <div class="shop-panel">
+                    <p><i class="fas fa-cart-arrow-down mr-3 fa-2x"></i><span>Магазин</span></p>
+                    <div class="container-fluid buyItem">
+                        <div class="row">
+                            <div class="col-xl-4 mb-3">
+                                <div class="col-md-12 text-center imgBlock">
+                                    <img src="img/imp_set.png" width="260" alt="">
+                                </div>
+                                <div class="col-xs-12 selectChar text-center">
+                                    <h5 class="item-title mt-3">Imperial Crusader Set</h5>
+                                    <p class="item-text">
+                                        Бонус от сета - +2 Str, -2 Dex, +8% P.Def, +445 HP
+                                        <p>-70% шанс прохождения Sleep/Hold. </p>
+                                        <p>Со щитом: -80% шанс прохождения Poison/Bleed.</p>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-xl-8">
+                                <div class="row tableBuy mb-4">
+                                    <div class="col-lg-12">
+                                        <div class="table-responsive">
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Выбор</th>
+                                                        <th class="text-center">Предмет</th>
+                                                        <th>Кол-во</th>
+                                                        <th>Заточка</th>
+                                                        <th>Цена</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="customControlInline1">
+                                                                <label class="custom-control-label" for="customControlInline1"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <img src="img/1.png" class="rounded-circle mr-2" width="40" alt=""> Imperial Crusader Breastplate
+                                                            <img src="img/Grade_S.gif" width="12" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td class="pl-2"><span>0 <i class="fas fa-ruble-sign"></i></span></td>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="customControlInline2">
+                                                                <label class="custom-control-label" for="customControlInline2"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <img src="img/2.png" class="rounded-circle mr-2" width="40" alt=""> Imperial Crusader Gaiters
+                                                            <img src="img/Grade_S.gif" width="12" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td class="pl-2"><span>0 <i class="fas fa-ruble-sign"></i></span></td>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="customControlInline3">
+                                                                <label class="custom-control-label" for="customControlInline3"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <img src="img/3.png" class="rounded-circle mr-2" width="40" alt=""> Imperial Crusader Boots
+                                                            <img src="img/Grade_S.gif" width="12" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td class="pl-2"><span>0 <i class="fas fa-ruble-sign"></i></span></td>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="customControlInline4">
+                                                                <label class="custom-control-label" for="customControlInline4"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <img src="img/6.png" class="rounded-circle mr-2" width="40" alt=""> Imperial Crusader Gauntlets
+                                                            <img src="img/Grade_S.gif" width="12" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td class="pl-2"><span>0 <i class="fas fa-ruble-sign"></i></span></td>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="customControlInline5">
+                                                                <label class="custom-control-label" for="customControlInline5"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <img src="img/5.png" class="rounded-circle mr-2" width="40" alt=""> Imperial Crusader Helmet
+                                                            <img src="img/Grade_S.gif" width="12" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td class="pl-2"><span>0 <i class="fas fa-ruble-sign"></i></span></td>
+                                                    </tr>
+                                                    <tr class="text-center">
+                                                        <td>
+                                                            <div class="custom-control custom-checkbox">
+                                                                <input type="checkbox" class="custom-control-input" id="customControlInline6">
+                                                                <label class="custom-control-label" for="customControlInline6"></label>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <img src="img/4.png" class="rounded-circle mr-2" width="40" alt=""> Imperial Crusader Shield
+                                                            <img src="img/Grade_S.gif" width="12" alt="">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td>
+                                                            <input class="counter" type="number" size="1" name="num" min="1" max="10" value="1">
+                                                        </td>
+                                                        <td class="pl-2"><span>0 <i class="fas fa-ruble-sign"></i></span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="amount">
+                                        <p>Сумма к оплате: 0 <i class="fas fa-ruble-sign"></i></p>
+                                    </div>
+                                </div>
+                                <div class="row buyBtn">
+                                    <div class="col-xs selector">
+                                        Персонаж:
+                                        <select name="character">
+                                            <option value="">Test1</option>
+                                            <option value="">Test2</option>
+                                            <option value="">Test3</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <a href="" class="btn btn-secondary btn-sm btn-block" role="button" id="cardBtn" aria-disabled="true">
+                                        <i class="fas fa-shopping-cart mr-2"></i>Купить
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="row justify-content-center fixed-bottom">
+            <div class="col-md-12 copyright_auth">
+                <p class="text-center">© 2018 WH-CLUB.RU - LINEAGE II TEST SERVER. ALL RIGHTS BELONG TO NCSOFT.</p>
+            </div>
+        </div>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

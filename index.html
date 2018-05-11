@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/media.css">
+    <title>Auth Panel</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar main-menu navbar-expand-lg fixed-top">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAuth" aria-controls="navbarNavAuth" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavAuth">
+                <ul class="navbar-nav">
+                    <li class="nav-item pr-3">
+                        <a class="nav-link" href="#"><span><i class="fas fa-home mr-1"></i></span>На сайт</span></a>
+                    </li>
+                    <li class="nav-item pr-3">
+                        <a class="nav-link" href="#"><i class="fas fa-comment mr-1"></i>Форум</a>
+                    </li>
+                    <li class="nav-item pr-3">
+                        <a class="nav-link" href="#"><i class="fas fa-sign-in-alt mr-1"></i>Авторизация</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-question-circle mr-1"></i>Забыли пароль?</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container auth-panel">
+        <form>
+            <h4 class="text-center pb-2">Регистрация</h4>
+            
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-address-card"></i></span>
+                    <span class="input-group-text" id="basic-addon2">
+                        
+                    </span>
+                </div>
+                <input type="login" class="form-control" placeholder="Логин (4-16 символов)" aria-label="Логин (4-16 символов)" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon2"><i class="fas fa-envelope"></i></span>
+                </div>
+                <input type="email" class="form-control" placeholder="Действующий e-mail" aria-label="Действующий e-mail" aria-describedby="basic-addon2">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon3"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Пароль (4-16 символов)" aria-label="Пароль (4-16 символов)" aria-describedby="basic-addon3">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon4"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" class="form-control" placeholder="Повторите пароль" aria-label="Повторите пароль" aria-describedby="basic-addon4">
+            </div>
+            <div class="form-check pb-3">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label pl-2" for="exampleCheck1">Ознакомлен с <a class="rulesModal" id="rules_a" href="" data-toggle="modal" data-target="#ModalLong">правилами проекта</a></label>
+                
+                <div class="modal fade bd-example-modal-lg" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h8 class="rules modal-title" id="exampleModalLongTitle">Правила проекта</h8>
+                            </div>
+                            <div class="modal-body">
+                                <p>Правила являются обязательными для всех игроков, за их соблюдением следит Администрация сервера. Наказание за нарушение правил так же определяется ими, в зависимости от нарушения, вплоть до полного бана игрока без возможности амнистии. Незнание правил не освобождает от ответственности!</p>
+                                <h7 class="rules text-center">1. Основные положения</h7>
+                                <p>1.1 Регистрируясь на сервере, Вы автоматически соглашаетесь с данными правилами, незнание или не понимание правил не освобождает от ответственности за их нарушение.</p>
+                                <p>1.2 Администрация оставляет за собой право делать любые изменения на сервере и в правилах без предварительного уведомления игроков.</p>
+                                <p>1.3 Данный сервер является бесплатным. Соответственно администрация занимается им исключительно на собственные средства и исключительно по собственному желанию.</p>
+                                <p>1.4 Учетные записи и все их содержимое являются собственностью администрации сервера.</p>
+                                <p>1.5 Администрация в праве в любой момент, без объяснения причин, прекратить предоставление доступа к серверу конкретному пользователю или подсети в целом.</p>
+                                <p>1.6 Администрация оставляет за собой право оценивать действия пользователей и накладывать на них какие-либо санкции в случаях, не предусмотренных данными правилами, если сочтет это необходимым.</p>
+                                <p>1.7 Администрация сервера не несет ответственности за случаи нанесения ущерба в результате игры на данном сервере и другие случаи, которые могут привести к возникновению нежелательных ситуаций.</p>
+                                <h7 class="rules text-center">2. Персонажи и аккаунты, взаимодействия с другими персонажами</h7>
+                                <p>2.1 Пользователь обязан помнить свои регистрационные данные (логин, пароль), либо хранить их в надежном месте. При утере или краже этих данных Администрация вправе не заниматься их возвратом, восстановлением права на аккаунт и т.п.</p>
+                                <p>2.2 Запрещен несанкционированный доступ к чужому игровому аккаунту.</p>
+                                <p>2.3 Запрещены нецензурные, вызывающие, оскорбительные или мешающие игровому процессу имена или титулы</p>
+                                <p>2.4 Запрещено преднамеренное создание персонажей с именами похожими на имена Администраторов, а так же запрещено представляться другим игрокам от имени Администрации. Запрещено использовать титулы, похожие на имя администратора (чаще всего "admin, moderator, GM, EGM" и т.д.).</p>
+                                <p>2.5 Хозяин аккаунта несет полную ответственность за все, что было сделано из-под его аккаунта независимо оттого кто совершал действия под данным аккаунтом.</p>
+                                <p>2.6 Запрещена покупка/продажа игровых ценностей (адену, оружие, броню, ресурсы и т.д) между персонажами за реальные деньги, а так же приравненные к ним «электронные платежные средства» (WebMoney, YandexДеньги и т.п.). Продажа или обмен игровых персонажей и(или) аккаунтов запрещена в любом виде, за любые игровые и не игровые ценности. Запрещено упоминать или вести обсуждение таких сделок в игре, на форуме, а также на сторонних ресурсах. Так же запрещено обменивать вещи между любыми другими играми, чаще всего это дота 2 и танки. В случае нарушения данного правила, все приобретенные ценности будут конфискованы. Нарушителям - бан аккаунта/железа, удаление вещей которых пытались продать или уже продали. После объявления о покупке/продаже чего либо в игре (шаут, торговля, клан, группа, друзья и прочие) - категорически запрещено давать на ответ покупателя/продавца любые виды связи, например как: РК, ТС, скайп, icq, социальные сети и прочие - это будет расцениваться как покупка/продажа игровых ценностей за реальные средства. Весь диалог должен вестись только в самой игре итолько за игровые ценности!</p>
+                                <p>2.7 Запрещено использование нецензурных выражений в игре в общественных местах. Запрещено оскорблять других игроков прямо или косвенно. Запрещены угрозы относящиеся к игроку за пределами игры.</p>
+                                <p>2.8 Запрещены любые проявления расизма и национализма</p>
+                                <p>2.9 Если Ваш аккаунт взломали и передали все вещи - виноваты в этом только Вы! Есть множество привязок по железу и айпи, которые 100% не дадут попасть взломщику на вашего персонажа. Администрация не разбирается по данному правилу.</p>
+                                <h7 class="rules text-center">3. Игровой процесс</h7>
+                                <p>3.1 Запрещено использование программного обеспечения (или распространение информации о нем) влияющего каким-либо образом на работу сервера или игровой процесс.
+                                <p>3.2 Запрещено использование багов игры или серверного, читерского ПО.</p>
+                                <p>3.3 Игрок обязан незамедлительно сообщить Администрации о замеченном баге, ошибке, недочете игры или серверного ПО. А так же о нарушителе, использующем подобные ошибки или подозреваемом в этом. Сокрытие данной информации расценивается как соучастие.</p>
+                                <p>3.4 При появлении в непосредственной близости от вас ГМ - следует приостановить любые действия.</p>
+                                <p>3.5 Запрещена реклама других игровых серверов. Право на определение рекламы принадлежит Администрации.</p>
+                                <p>3.6 Торговля осуществляется непосредственно самими игроками и любые ошибки допущенные участниками торговых отношений остаются на их совести.</p>
+                                <p>3.7 Запрещен флуд (многократно повторяющиеся или бессмысленные сообщения) в игровом чате (общем, торговом клановом или приватном).</p>
+                                <p>3.8 Администрация не вмешивается в игровой процесс никаким образом, исключая моменты, которые она посчитает требующими вмешательства.</p>
+                                <p>3.9 Запрещено дезинформировать игроков, либо выносить свое мнение о сервере или другой проблеме в игровом чате. (Вы всегда сможете это обсудить на форуме). Наказание: бан чата от 120 минут, вплоть до бана аккаунта/HWID.</p>
+                                <p>4.0 Клан лидер, взявший игровые ценности при стоимости на вторичном рынке (свыше 300кк) у своих сокланов и обязавшись их вернуть - должен вернуть их при первом требование владельца. В противном случае вещь изымается Администрацией, и возвращается законному владельцу.</p>
+                                <h7 class="rules text-center">4. Взаимодействие с администрацией сервера</h7>
+                                <p>4.1 Запрещено обращаться к Администрации сервера без крайней необходимости. Любое обращение к Администрации должно содержать четкое изложение проблемы игрока. Запрещено обращение к администрации с просьбой написать "в приват".Администрация оставляет за собой право не отвечать на вопросы.</p>
+                                <p>4.2 Запрещено необоснованное обвинение Администрации и игроков в чем-либо, а так же клевета в любой форме и проявлении.</p>
+                                <p>4.3 Запрещено распространение ложной информации или информации задевающей честь и достоинство ГМов и Администрации.</p>
+                                <p>4.4 Запрещено неуважительные высказывания в сторону ГМов, Администрации или о сервере в целом, неуважительные или грубые высказывания о Администрации или ГМах в любом из чатов, угрозы и т.п..</p>
+                                <p>4.5 Запрещено намеренно вводить Администраторов в заблуждение.</p>
+                                <p>4.6 Запрещено досаждать Администраторам просьбами отменить наложенное наказание.</p>
+                                <p>4.7 Запрещена атака Администрации без их предварительного согласия. Запрещен Party, Friend, Clan, Ally или Trade запрос Администрации без его предварительного согласия.</p>
+                            
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary btn-lg" id="rulesBtn" data-dismiss="modal">Закрыть</button>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                
+            </div>
+            <button type="submit" class="btn btn-secondary btn-lg btn-block" id="formBtn"><i class="fas fa-chevron-circle-down mr-2"></i><span class="mb-1">Зарегистрироваться</span></button>
+        </form>
+    </div>
+    <footer>
+        <div class="row justify-content-center fixed-bottom">
+            <div class="col-md-12 copyright_auth">
+                <p class="text-center">© 2018 WH-CLUB.RU - LINEAGE II TEST SERVER. ALL RIGHTS BELONG TO NCSOFT.</p>
+            </div>
+        </div>
+    </footer>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
